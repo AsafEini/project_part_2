@@ -85,6 +85,7 @@ function printParent(currentObjId, file) {
 }
 
 function findAllIds(array, file) {
+
     for (var i = 0; file.children[i]; ++i) {
         if (file.children[i].type === 'directory') {
             array.push(file.children[i].id);
@@ -344,10 +345,11 @@ function changeCurrentFolder() {
 
 function createFileOrFolder() {
     var DirToCreateIn = printChildren(currentFolderId,root);
-    var idsArray = [];
+    var idsArray = [0];
     findAllIds(idsArray,root);
     var sortedArray = idsArray.sort();
     var alreadyExists = false;
+
 
 
     var fileOrFolder = prompt("what do you want to create?(file or folder)");
